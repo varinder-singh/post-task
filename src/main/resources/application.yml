@@ -1,0 +1,24 @@
+spring.application.name: posttask
+
+# DynamoDB credentials
+server.port: 8081
+
+# Log level
+logging:
+  level: 
+    org.springframework.security.web: DEBUG
+
+## replace below url with your aws region (aws-region)
+## https://dynamodb.aws-region.amazonaws.com
+aws.dynamodb.endpoint: http://localhost:8000 # https://dynamodb.ap-south-1.amazonaws.com
+
+## your aws region
+aws.region: x # ap-south-1
+
+## aws generate aws access key after creating user
+aws.dynamodb.accessKey: x # ${aws.dynamodb.accessKey}
+
+
+## aws generate aws secret key after creating user
+aws.dynamodb.secretKey: x # ${aws.dynamodb.secretKey}
+
