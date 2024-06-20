@@ -18,6 +18,8 @@ repositories {
 }
 
 dependencies {
+	implementation 'org.apache.httpcomponents.client5:httpclient5'
+
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
@@ -38,9 +40,11 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 
 	// testImplementation 'org.springframework.security:spring-security-test'
-	implementation 'com.amazonaws:aws-java-sdk-dynamodb:1.11.85'
+	// implementation 'com.amazonaws:aws-java-sdk-dynamodb:1.11.85'
+	implementation 'com.amazonaws:aws-java-sdk-dynamodb:1.12.745'
 
-
+	// implementation 'org.apache.httpcomponents.client5:httpclient5'
+	// implementation 'org.apache.httpcomponents.client5:httpclient5-fluent'
 }
 
 tasks.named('test') {

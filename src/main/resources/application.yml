@@ -22,3 +22,5 @@ aws.dynamodb.accessKey: x # ${aws.dynamodb.accessKey}
 ## aws generate aws secret key after creating user
 aws.dynamodb.secretKey: x # ${aws.dynamodb.secretKey}
 
+# proxy server settings
+http.proxy.server.endpoint: http://localhost:8080/authenticate # url of local running userdetails service 
