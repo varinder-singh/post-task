@@ -38,12 +38,8 @@ public class PostTaskController {
   }
 
   @PostMapping("/post-tasks")
-  public ResponseEntity<?> addPost(@RequestPart(value = "file", required = false) MultipartFile file,
-      @RequestPart("data") PostTaskRequestDto postTaskDto) {
-    if (!file.isEmpty()) {
-      log.info("Controller : Creating Post");
-    }
+  public ResponseEntity<?> addPost(@RequestBody PostTaskRequestDto postTaskDto) {
+    log.info("Saving post with data {}", postTaskDto);
     return ResponseEntity.ok(this.postTaskService.createPost(postTaskDto));
-
   }
 }
