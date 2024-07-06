@@ -19,7 +19,8 @@ import lombok.NoArgsConstructor;
 @Data
 @Getter
 public class PostTaskRequestDto {
-  // private String postTaskId;
+  private String postTaskId;
+  private String targetPlatformPostUrl;
   private String content;
   private Boolean isSuggestedPost;
   private Boolean isPriorityPost;

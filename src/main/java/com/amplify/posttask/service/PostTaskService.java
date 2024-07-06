@@ -37,7 +37,8 @@ public class PostTaskService {
 
   public String createPost(PostTaskRequestDto postTaskDto) {
     PostTask postTask = new PostTask();
-    postTask.setContent(postTaskDto.getContent()); // later change this to AWS S3 location
+    postTask.setTargetPlatformPostUrl(postTaskDto.getTargetPlatformPostUrl());
+    postTask.setContent(postTaskDto.getContent());
     postTask.setIsSuggestedPost(postTaskDto.getIsSuggestedPost());
     postTask.setIsPriorityPost(postTaskDto.getIsPriorityPost());
     postTask.setPostTaskCategory(postTaskDto.getCategory());
@@ -64,5 +65,10 @@ public class PostTaskService {
         .map(e -> postTaskMapper.toPostTaskDto(e))
         .toList();
     return retVal;
+  }
+
+  public PostTaskResponseDto getPostTaskByTgtPlatformPostUrl(String targetPlatformPostUrl) {
+    // TODO Auto-generated method stub
+    return postTaskMapper.toPostTaskDto(this.postTaskRepositoryImpl.getPost(targetPlatformPostUrl).get(0));
   }
 }

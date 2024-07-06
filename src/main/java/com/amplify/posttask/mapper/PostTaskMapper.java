@@ -20,7 +20,7 @@ public class PostTaskMapper {
     }
     return PostTaskResponseDto.builder()
         .postTaskId(postTask.getPostTaskId())
-        .content(postTask.getContent())
+        .targetPlatformPostUrl(postTask.getTargetPlatformPostUrl())
         .isSuggestedPost(postTask.getIsSuggestedPost())
         .isPriorityPost(postTask.getIsPriorityPost())
         .category(postTask.getPostTaskCategory().toString())

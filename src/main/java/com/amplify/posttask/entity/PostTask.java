@@ -34,6 +34,9 @@ public class PostTask {
 	  private String postTaskId;
 
     @DynamoDBAttribute
+    private String targetPlatformPostUrl;
+    
+    @DynamoDBAttribute
     private String content;
 
     @DynamoDBTyped(DynamoDBAttributeType.BOOL)

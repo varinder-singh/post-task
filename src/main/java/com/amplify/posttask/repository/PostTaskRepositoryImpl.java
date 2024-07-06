@@ -34,13 +34,25 @@ public class PostTaskRepositoryImpl {
     log.info("Get All Posts");
     // Map<String, AttributeValue> keyObj = new HashMap<String, AttributeValue>();
     // // keyObj.put(":email", new AttributeValue().withS(email));
-    // DynamoDBQueryExpression<PostTask> queryExpression = new DynamoDBQueryExpression<PostTask>()
-    //     // .withKeyConditionExpression("email= :email")
-    //     .withExpressionAttributeValues(keyObj);
+    // DynamoDBQueryExpression<PostTask> queryExpression = new
+    // DynamoDBQueryExpression<PostTask>()
+    // // .withKeyConditionExpression("email= :email")
+    // .withExpressionAttributeValues(keyObj);
 
-    // List<PostTask> postTaskList = dynamoDBMapper.query(PostTask.class, queryExpression);
+    // List<PostTask> postTaskList = dynamoDBMapper.query(PostTask.class,
+    // queryExpression);
     List<PostTask> postTaskList = dynamoDBMapper.scanPage(PostTask.class, new DynamoDBScanExpression()).getResults();
     return postTaskList;
+  }
+
+  public List<PostTask> getPost(String targetPlatformPostUrl) {
+    Map<String, AttributeValue> keyObj = new HashMap<String, AttributeValue>();
+    keyObj.put(":targetPlatformPostUrl", new AttributeValue().withS(targetPlatformPostUrl));
+    DynamoDBQueryExpression<PostTask> queryExpression = new DynamoDBQueryExpression<PostTask>()
+        .withKeyConditionExpression("targetPlatformPostUrl= :targetPlatformPostUrl")
+        .withExpressionAttributeValues(keyObj);
+    //TODO: ensure that only one record is fetched in below query operation
+    return dynamoDBMapper.query(PostTask.class, queryExpression);
   }
 
 }
