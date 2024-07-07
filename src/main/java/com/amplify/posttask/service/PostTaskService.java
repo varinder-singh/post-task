@@ -67,8 +67,8 @@ public class PostTaskService {
     return retVal;
   }
 
-  public PostTaskResponseDto getPostTaskByTgtPlatformPostUrl(String targetPlatformPostUrl) {
+  public PostTaskResponseDto getPostTaskById(String postTaskId) {
     // TODO Auto-generated method stub
-    return postTaskMapper.toPostTaskDto(this.postTaskRepositoryImpl.getPost(targetPlatformPostUrl).get(0));
+    return postTaskMapper.toPostTaskDto(this.postTaskRepositoryImpl.getPost(postTaskId).get(0));
   }
 }

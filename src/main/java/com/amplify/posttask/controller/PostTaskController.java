@@ -44,10 +44,10 @@ public class PostTaskController {
     return ResponseEntity.ok(this.postTaskService.createPost(postTaskDto));
   }
 
-  @GetMapping("/post-tasks/{postUrl}")
-  public ResponseEntity<PostTaskResponseDto> getPostTaskByTgtPlatformPostUrl(
-      @PathVariable("postUrl") String targetPlatformPostUrl) {
-    log.info("fetching post by PostUrl : {}", targetPlatformPostUrl);
-    return ResponseEntity.ok().body(this.postTaskService.getPostTaskByTgtPlatformPostUrl(targetPlatformPostUrl));
+  @GetMapping("/post-tasks/{id}")
+  public ResponseEntity<PostTaskResponseDto> getPostTaskById(
+      @PathVariable("id") String postTaskId) {
+    log.info("fetching post by PostTaskId : {}", postTaskId);
+    return ResponseEntity.ok().body(this.postTaskService.getPostTaskById(postTaskId));
   }
 }

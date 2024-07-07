@@ -45,11 +45,11 @@ public class PostTaskRepositoryImpl {
     return postTaskList;
   }
 
-  public List<PostTask> getPost(String targetPlatformPostUrl) {
+  public List<PostTask> getPost(String postTaskId) {
     Map<String, AttributeValue> keyObj = new HashMap<String, AttributeValue>();
-    keyObj.put(":targetPlatformPostUrl", new AttributeValue().withS(targetPlatformPostUrl));
+    keyObj.put(":postTaskId", new AttributeValue().withS(postTaskId));
     DynamoDBQueryExpression<PostTask> queryExpression = new DynamoDBQueryExpression<PostTask>()
-        .withKeyConditionExpression("targetPlatformPostUrl= :targetPlatformPostUrl")
+        .withKeyConditionExpression("postTaskId= :postTaskId")
         .withExpressionAttributeValues(keyObj);
     //TODO: ensure that only one record is fetched in below query operation
     return dynamoDBMapper.query(PostTask.class, queryExpression);
