@@ -22,6 +22,7 @@ import com.amplify.posttask.service.PostTaskService;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+@CrossOrigin(origins = {"http://localhost:3000", "https://viralpush.vercel.app"})
 @NoArgsConstructor
 @RestController
 @Slf4j
