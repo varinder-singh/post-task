@@ -17,6 +17,7 @@ import com.amplify.posttask.dto.PostTaskRequestDto;
 import com.amplify.posttask.dto.PostTaskResponseDto;
 import com.amplify.posttask.entity.PostTask;
 import com.amplify.posttask.service.PostTaskService;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
