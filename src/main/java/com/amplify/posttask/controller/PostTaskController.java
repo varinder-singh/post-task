@@ -45,6 +45,13 @@ public class PostTaskController {
     return ResponseEntity.ok(this.postTaskService.createPost(postTaskDto));
   }
 
+  @GetMapping("/post-tasks/{id}")
+  public ResponseEntity<PostTaskResponseDto> getPostTaskById(
+      @PathVariable("id") String postTaskId) {
+    log.info("fetching post by PostTaskId : {}", postTaskId);
+    return ResponseEntity.ok().body(this.postTaskService.getPostTaskById(postTaskId));
+  }
+
   // TODO: add more HTTP methods if used in application
   @RequestMapping(value = "/post-tasks", method = RequestMethod.OPTIONS)
   public ResponseEntity<String> optionResponse(@RequestHeader("Authorization") String accessToken) {
@@ -53,5 +60,4 @@ public class PostTaskController {
         .allow(HttpMethod.POST, HttpMethod.OPTIONS, HttpMethod.GET)
         .build();
   }
-
 }
