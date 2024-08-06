@@ -42,5 +42,14 @@ public class PostTaskRepositoryImpl {
     List<PostTask> postTaskList = dynamoDBMapper.scanPage(PostTask.class, new DynamoDBScanExpression()).getResults();
     return postTaskList;
   }
-
+  
+  public List<PostTask> getPost(String postTaskId) {
+    Map<String, AttributeValue> keyObj = new HashMap<String, AttributeValue>();
+    keyObj.put(":postTaskId", new AttributeValue().withS(postTaskId));
+    DynamoDBQueryExpression<PostTask> queryExpression = new DynamoDBQueryExpression<PostTask>()
+        .withKeyConditionExpression("postTaskId= :postTaskId")
+        .withExpressionAttributeValues(keyObj);
+    //TODO: ensure that only one record is fetched in below query operation
+    return dynamoDBMapper.query(PostTask.class, queryExpression);
+  }
 }
