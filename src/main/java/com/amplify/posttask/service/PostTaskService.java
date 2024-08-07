@@ -65,4 +65,9 @@ public class PostTaskService {
         .toList();
     return retVal;
   }
+
+  public PostTaskResponseDto getPostTaskById(String postTaskId) {
+    // TODO Auto-generated method stub
+    return postTaskMapper.toPostTaskDto(this.postTaskRepositoryImpl.getPost(postTaskId).get(0));
+  }
 }
