@@ -1,6 +1,8 @@
 package com.amplify.posttask.service;
 
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,9 +18,6 @@ import com.amplify.posttask.repository.PostTaskRepositoryImpl;
 import lombok.Data;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @Data
 @Getter
@@ -50,7 +49,7 @@ public class PostTaskService {
     } catch (Exception ex) { // TODO: add specific catch exceptions and throw accordingly
       throw new PostTaskException(HttpStatus.INTERNAL_SERVER_ERROR, "Error occurred while saving Post in DB");
     }
-    return "Task created successfully";
+    return "{\"success\":\"Post created successfully.\"}";
   }
 
   public List<PostTaskResponseDto> getAllTasks() {
